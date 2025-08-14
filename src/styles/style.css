@@ -1,0 +1,203 @@
+/* Importação otimizada de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+
+/* Variáveis CSS modernas */
+:root {
+  --color-primary: #8bc34a;
+  --color-primary-hover: #7cb342;
+  --color-primary-transparent: rgba(139, 195, 74, 0.7);
+
+  --color-text-light: #f8fafc;
+  --color-text-dark: #13121a;
+  --color-bg-dark: #13121a;
+  --color-bg-medium: #24232b;
+  --color-bg-light: #2d2c36;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --transition-fast: 0.2s;
+  --transition-normal: 0.4s;
+}
+
+/* Reset moderno */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografia e base */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+/* Container principal */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Ilustração */
+#password_img {
+  width: 6.25rem;
+  height: auto;
+}
+
+/* Título */
+#title {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Container da senha */
+#password_container {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-medium);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+#password_container.show {
+  display: flex;
+}
+
+#password {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+/* Botão de copiar */
+#copy {
+  background-color: transparent;
+  border: none;
+  color: var(--color-primary);
+  height: 2.5rem;
+  width: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+#copy:hover,
+#copy:focus {
+  color: var(--color-primary-hover);
+  outline: none;
+}
+
+/* Opções de senha */
+#password_items {
+  width: 100%;
+  background-color: var(--color-bg-medium);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+/* Input de tamanho */
+#size {
+  width: 3.125rem;
+  padding: 0.375rem;
+  text-align: center;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+#size:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+/* Checkboxes */
+input[type='checkbox'] {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--color-bg-light);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+input[type='checkbox']:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input[type='checkbox']:checked::after {
+  content: '✓';
+  position: absolute;
+  color: var(--color-text-dark);
+  font-size: 0.75rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Botão de gerar */
+#generate {
+  background-color: var(--color-primary);
+  border: none;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text-dark);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+}
+
+#generate:hover,
+#generate:focus {
+  background-color: var(--color-primary-hover);
+  outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  #password_items {
+    padding: 1rem;
+  }
+
+  .item {
+    gap: 0.75rem;
+  }
+}
